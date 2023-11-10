@@ -12,7 +12,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         MathInteger testClass = new MathIntTestClass();
-        List<Method> annotatedMethod = CheckAnnotation.getAnnotatedMethod(testClass, Log.class);
+        List<Method> annotatedMethod = CheckAnnotation.getAnnotatedMethod(testClass.getClass(), Log.class);
         InvocationHandler handler = new LogHandler(testClass, annotatedMethod);
         MathInteger proxy = (MathInteger) Proxy.newProxyInstance(testClass.getClass().getClassLoader(),
                 new Class[]{MathInteger.class},
